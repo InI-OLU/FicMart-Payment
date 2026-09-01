@@ -235,6 +235,12 @@ _pkginfo.txt
 # but keep track of directories ending in .cache
 !?*.[Cc]ache/
 
+# Ignore local/environment config (may contain secrets)
+**/appsettings.json
+**/appsettings.Development.json
+**/appsettings.Production.json
+**/appsettings.Staging.json
+
 # Others
 ClientBin/
 ~$*
