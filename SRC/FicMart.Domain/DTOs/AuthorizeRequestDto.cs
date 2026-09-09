@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FicMart.Infrastructure.Persistence
+namespace FicMart.Domain.DTOs
 {
-    internal class ApplicationDbContext
+    internal class AuthorizeRequestDto
     {
     }
 }
