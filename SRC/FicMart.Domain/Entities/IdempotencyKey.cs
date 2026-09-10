@@ -25,7 +25,7 @@ namespace FicMart.Domain.Entities
         public string? ResponseBody { get; set; }
         [MaxLength(50)]
         public required RecoveryPoint RecoveryPoint { get; set; }
-        public long UserId { get; set; }
+        public string CustomerId { get; set; }
 
     }
 }
