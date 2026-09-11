@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FicMart.Domain.Entities
+namespace FicMart.Application.Abstractions.ExternalService
 {
-    public class AuditLogs
+    public interface IMockBankService
     {
-        public long Id { get; set; }
     }
 }

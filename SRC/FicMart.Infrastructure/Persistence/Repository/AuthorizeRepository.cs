@@ -1,5 +1,7 @@
 ﻿using FicMart.Application.Abstractions;
+using FicMart.Domain.DTOs;
 using FicMart.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,9 +18,9 @@ namespace FicMart.Infrastructure.Persistence.Repository
         {
             _dbContext = dbContext;
         }
-        public async Task<IdempotencyKey> CreateIdempotencyKey()
+        public async Task CreateIdempotencyKey(IdempotencyKey key)
         {
-
+            await _dbContext.IdempotencyKeys.AddAsync(key);
         }
     }
 }

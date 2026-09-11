@@ -23,7 +23,7 @@ namespace FicMart.Domain.Entities
         public required string RequestPath { get; set; }
         public int? ResponseCode { get; set; }
         public string? ResponseBody { get; set; }
-        [MaxLength(50)]
+ 
         public required RecoveryPoint RecoveryPoint { get; set; }
         public string CustomerId { get; set; }
 
