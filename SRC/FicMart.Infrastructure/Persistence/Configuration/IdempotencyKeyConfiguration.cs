@@ -21,6 +21,10 @@ namespace FicMart.Infrastructure.Persistence.Configuration
                   .HasMaxLength(100);
             builder.Property(o => o.RecoveryPoint)
                   .HasMaxLength(50);
+            builder.Property(o => o.RecoveryPoint)
+                 .HasConversion<string>();
+            builder.HasIndex(o => new { o.CustomerId, o.Idempotencykey })
+                    .IsUnique();
         }
     }
 }

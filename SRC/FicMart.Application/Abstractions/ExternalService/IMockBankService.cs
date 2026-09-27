@@ -1,4 +1,5 @@
-﻿using FicMart.Domain.DTOs;
+﻿using FicMart.Application.ResultWrapper;
+using FicMart.Domain.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace FicMart.Application.Abstractions.ExternalService
 {
     public interface IMockBankService
     {
-        Task<AuthorizeResponseDto> AuthorizeBankPayment();
+        Task<Result<AuthorizeResponseDto>> AuthorizeBankPayment(AuthorizeRequestDto request, string IdempotencyKey);
     }
 }

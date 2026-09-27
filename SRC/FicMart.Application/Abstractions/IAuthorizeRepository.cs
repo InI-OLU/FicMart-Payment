@@ -10,5 +10,6 @@ namespace FicMart.Application.Abstractions
     public interface IAuthorizeRepository
     {
         Task CreateIdempotencyKey(IdempotencyKey key);
+        Task<IdempotencyKey?> FindByKey(string key, string customerId);
     }
 }

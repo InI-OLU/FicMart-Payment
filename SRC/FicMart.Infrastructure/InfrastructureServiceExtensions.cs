@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 
 namespace FicMart.Infrastructure
 {
@@ -11,6 +12,11 @@ namespace FicMart.Infrastructure
         {
             services.AddDbContext<AppDbContext>(options =>
                 options.UseNpgsql(configuration.GetConnectionString("DatabaseConnection")));
+            services.AddHttpClient("BankApi", (serviceProvider, client) =>
+            {
+
+                client.BaseAddress = new Uri("http://localhost:8787/api/v1/");
+            });
             return services;
         }
     }

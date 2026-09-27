@@ -6,7 +6,5 @@ using System.Threading.Tasks;
 
 namespace FicMart.Domain.DTOs
 {
-    internal class AuthorizeResponseDto
-    {
-    }
+    public record AuthorizeResponseDto(string amount,string authorizationId ,string createdAt ,string currency,string expiresAt,string status);
 }
