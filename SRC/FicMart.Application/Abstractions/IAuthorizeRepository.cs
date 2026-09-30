@@ -11,5 +11,6 @@ namespace FicMart.Application.Abstractions
     {
         Task CreateIdempotencyKey(IdempotencyKey key);
         Task<IdempotencyKey?> FindByKey(string key, string customerId);
+        void UpdateIdempotencykey(IdempotencyKey key);
     }
 }
