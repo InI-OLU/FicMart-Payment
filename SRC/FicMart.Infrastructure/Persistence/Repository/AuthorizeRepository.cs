@@ -22,10 +22,18 @@ namespace FicMart.Infrastructure.Persistence.Repository
         {
             await _dbContext.IdempotencyKeys.AddAsync(key);
         }
+        public async Task CreateReceipt(Receipt receipt)
+        {
+            await _dbContext.Receipts.AddAsync(receipt);
+        }
         public async Task<IdempotencyKey?> FindByKey(string key, string customerId)
         {
          return await _dbContext.IdempotencyKeys.Where(b => b.Idempotencykey == key && b.CustomerId == customerId)
                                             .FirstOrDefaultAsync();
+        }
+        public void UpdateIdempotencyKey(IdempotencyKey key)
+        {
+            _dbContext.IdempotencyKeys.Update(key);
         }
     }
 }

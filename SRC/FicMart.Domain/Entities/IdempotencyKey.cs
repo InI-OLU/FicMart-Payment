@@ -15,16 +15,12 @@ namespace FicMart.Domain.Entities
         [MaxLength(100)]
         public required string Idempotencykey { get; set; }
         public DateTime LastRunAt { get; set; } = DateTime.UtcNow;
-        public DateTime LockedAt { get; set; } = DateTime.UtcNow;
-        [MaxLength(10)]
-        public required string RequestMethod { get; set; }
+        public DateTime? LockedAt { get; set; } = DateTime.UtcNow;
         public required string RequestParameter { get; set; }
-        [MaxLength(100)]
-        public required string RequestPath { get; set; }
         public int? ResponseCode { get; set; }
         public string? ResponseBody { get; set; }
  
-        public required RecoveryPoint RecoveryPoint { get; set; }
+        public  PaymentStatus RecoveryPoint { get; set; }
         public string CustomerId { get; set; }
 
     }

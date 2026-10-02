@@ -10,7 +10,8 @@ namespace FicMart.Application.Abstractions
     public interface IAuthorizeRepository
     {
         Task CreateIdempotencyKey(IdempotencyKey key);
+        Task CreateReceipt(Receipt receipt);
         Task<IdempotencyKey?> FindByKey(string key, string customerId);
-        void UpdateIdempotencykey(IdempotencyKey key);
+        void UpdateIdempotencyKey(IdempotencyKey key);
     }
 }

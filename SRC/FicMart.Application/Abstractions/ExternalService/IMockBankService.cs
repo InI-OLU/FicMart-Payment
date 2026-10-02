@@ -11,5 +11,6 @@ namespace FicMart.Application.Abstractions.ExternalService
     public interface IMockBankService
     {
         Task<Result<AuthorizeResponseDto>> AuthorizeBankPayment(AuthorizeRequestDto request, string IdempotencyKey);
+        Task<Result<CaptureResponseDto>> CaptureBankPayment(CaptureRequestDto request, string IdempotencyKey);
     }
 }

@@ -8,9 +8,14 @@ namespace FicMart.Domain.Enums
 {
     public enum PaymentStatus
     {
+        Authorizing,
         Authorized,
+        Capturing,
         Captured,
+        voiding,
         Voided ,
-        Refunded
+        Refunding,
+        Refunded,
+        Declined
     }
 }

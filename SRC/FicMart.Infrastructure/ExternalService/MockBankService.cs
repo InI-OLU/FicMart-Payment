@@ -32,8 +32,25 @@ namespace FicMart.Infrastructure.ExternalService
                 return Result<AuthorizeResponseDto>.Success(success);
             }
             var error = await httpResponse.Content.ReadFromJsonAsync<AuthorizeResponseDto>();
-            return Result<AuthorizeResponseDto>.Failure(Error.BadRequest(error.createdAt));
+            return Result<AuthorizeResponseDto>.Failure(ErrorResult.BadRequest(error.createdAt));
 
+        }
+        public async Task<Result<CaptureResponseDto>> CaptureBankPayment(CaptureRequestDto request,string IdempotencyKey)
+        {
+            using var client = _httpClientFactory.CreateClient("BankApi");
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Post, "authorizations")
+            {
+                Content = JsonContent.Create(request)
+            };
+            httpRequest.Headers.Add("Idempotency-Key", IdempotencyKey);
+            using var httpResponse = await client.SendAsync(httpRequest);
+            if (httpResponse.IsSuccessStatusCode)
+            {
+                var success = await httpResponse.Content.ReadFromJsonAsync<AuthorizeResponseDto>();
+                return Result<CaptureResponseDto>.Success(success);
+            }
+            var error = await httpResponse.Content.ReadFromJsonAsync<AuthorizeResponseDto>();
+            return Result<CaptureResponseDto>.Failure(ErrorResult.BadRequest(error.createdAt));
         }
     }
 }

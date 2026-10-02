@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace FicMart.Domain.Enums
 {
-    public class Currency
+    public enum Currency
     {
+        Dollars
     }
 }
