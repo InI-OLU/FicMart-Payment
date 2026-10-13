@@ -15,10 +15,6 @@ namespace FicMart.Infrastructure.Persistence.Configuration
                     .HasMaxLength(100);
             builder.Property(o => o.Idempotencykey)
                     .HasMaxLength(100);
-            builder.Property(o => o.RequestMethod)
-                  .HasMaxLength(10);
-            builder.Property(o => o.RequestPath)
-                  .HasMaxLength(100);
             builder.Property(o => o.RecoveryPoint)
                   .HasMaxLength(50);
             builder.Property(o => o.RecoveryPoint)

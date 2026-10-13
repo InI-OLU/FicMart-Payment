@@ -35,5 +35,21 @@ namespace FicMart.Infrastructure.Persistence.Repository
         {
             _dbContext.IdempotencyKeys.Update(key);
         }
+        public async Task<IdempotencyKey?> GetForUpdate(string customerId, string key, CancellationToken ct)
+        {
+            var rows = await _dbContext.IdempotencyKeys.FromSqlInterpolated($"""
+            SELECT * FROM IdempotencyKeys
+            WHERE CustomerId = {customerId} AND IdempotencyKey = {key}
+            FOR UPDATE
+            """)
+                .ToListAsync(ct);
+            return rows.SingleOrDefault();
+        }
+
+        public async Task<Receipt?> GetReceiptByOrderIdAsync(string customerId, string orderId ,CancellationToken ct)
+        {
+            return await _dbContext.Receipts.Where(b => b.CustomerId == customerId && b.OrderId == orderId)
+                                            .FirstOrDefaultAsync(ct);
+        }
     }
 }

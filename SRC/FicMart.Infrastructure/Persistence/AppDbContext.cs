@@ -36,5 +36,6 @@ namespace FicMart.Infrastructure.Persistence
             await _transaction.DisposeAsync();
             _transaction = null;
         }
+        public void ClearChangeTracker() => ChangeTracker.Clear();
     }
 }

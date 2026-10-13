@@ -12,6 +12,8 @@ namespace FicMart.Application.Abstractions
         Task CreateIdempotencyKey(IdempotencyKey key);
         Task CreateReceipt(Receipt receipt);
         Task<IdempotencyKey?> FindByKey(string key, string customerId);
+        Task<IdempotencyKey?> GetForUpdate(string customerId, string key, CancellationToken ct);
+        Task<Receipt?> GetReceiptByOrderIdAsync(string customerId, string orderId, CancellationToken ct);
         void UpdateIdempotencyKey(IdempotencyKey key);
     }
 }

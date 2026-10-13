@@ -3,8 +3,9 @@ namespace FicMart.Domain.Enums
 {
     public enum RecoveryPoint
     {
-        authorizing,
-        authorized,
-        finished
+        created,
+        calling,
+        success,
+        failed,
     }
 }

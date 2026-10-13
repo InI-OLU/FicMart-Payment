@@ -15,6 +15,7 @@ try
         .ReadFrom.Configuration(builder.Configuration)
         .ReadFrom.Services(services));
     builder.Services.AddInfrastructure(builder.Configuration);
+    builder.Services.AddSingleton(TimeProvider.System);
 
 
     var app = builder.Build();

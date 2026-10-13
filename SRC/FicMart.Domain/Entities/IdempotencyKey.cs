@@ -20,7 +20,7 @@ namespace FicMart.Domain.Entities
         public int? ResponseCode { get; set; }
         public string? ResponseBody { get; set; }
  
-        public  PaymentStatus RecoveryPoint { get; set; }
+        public  RecoveryPoint RecoveryPoint { get; set; }
         public string CustomerId { get; set; }
 
     }
