@@ -11,7 +11,7 @@ namespace FicMart.Infrastructure
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<AppDbContext>(options =>
-                options.UseNpgsql(configuration.GetConnectionString("DatabaseConnection")));
+                options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
             services.AddHttpClient("BankApi", (serviceProvider, client) =>
             {
 

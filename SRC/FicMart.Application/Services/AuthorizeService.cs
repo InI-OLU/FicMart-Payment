@@ -1,5 +1,6 @@
 ﻿using FicMart.Application.Abstractions;
 using FicMart.Application.Abstractions.ExternalService;
+using FicMart.Application.Abstractions.Service;
 using FicMart.Application.ResultWrapper;
 using FicMart.Domain.DTOs;
 using FicMart.Domain.Entities;
@@ -14,7 +15,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace FicMart.Application.Services
 {
-   public class AuthorizeService
+   public class AuthorizeService:IAuthorizeService
     {
         private static readonly TimeSpan LockTimeout = TimeSpan.FromMinutes(3);
         private const int MaxClaimAttempts = 3;
