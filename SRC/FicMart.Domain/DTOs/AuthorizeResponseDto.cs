@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FicMart.Domain.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,5 +7,11 @@ using System.Threading.Tasks;
 
 namespace FicMart.Domain.DTOs
 {
-    public record AuthorizeResponseDto(string amount,string authorizationId ,string createdAt ,string currency,string expiresAt,string status);
+    public sealed record AuthorizeResponseDto(
+    long Amount,
+    string AuthorizationId,
+    DateTimeOffset CreatedAt,
+    string Currency,
+    DateTimeOffset ExpiresAt,
+    string Status);
 }

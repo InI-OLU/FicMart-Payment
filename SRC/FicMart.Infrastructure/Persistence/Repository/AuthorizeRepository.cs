@@ -38,8 +38,8 @@ namespace FicMart.Infrastructure.Persistence.Repository
         public async Task<IdempotencyKey?> GetForUpdate(string customerId, string key, CancellationToken ct)
         {
             var rows = await _dbContext.IdempotencyKeys.FromSqlInterpolated($"""
-            SELECT * FROM IdempotencyKeys
-            WHERE CustomerId = {customerId} AND IdempotencyKey = {key}
+            SELECT * FROM "IdempotencyKeys"
+            WHERE "CustomerId" = {customerId} AND "Idempotencykey" = {key}
             FOR UPDATE
             """)
                 .ToListAsync(ct);

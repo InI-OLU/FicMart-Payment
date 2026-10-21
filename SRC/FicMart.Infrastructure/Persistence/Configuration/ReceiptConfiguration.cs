@@ -13,7 +13,7 @@ namespace FicMart.Infrastructure.Persistence.Configuration
     {
         public void Configure(EntityTypeBuilder<Receipt> builder)
         {
-            builder.Property(r => r.RowVersion).IsRowVersion();
+           
         }
     }
 }

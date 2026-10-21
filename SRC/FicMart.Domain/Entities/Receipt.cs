@@ -22,6 +22,5 @@ namespace FicMart.Domain.Entities
         public string? VoidId { get; set; }
         public string? RefundId { get; set; }
 
-        public byte[] RowVersion { get; set; }         
     }
 }

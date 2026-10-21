@@ -10,7 +10,7 @@ namespace FicMart.Domain.DTOs
     {
         public string CardNumber { get; set; }
         public string Cvv { get; set; }
-        public DateTime ExpiryDate { get; set; }
-        public long Balance { get; set; }
+        public int ExpiryDateMonth { get; set; }
+        public int ExpiryDateYear { get; set; }
     }
 }

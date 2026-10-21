@@ -162,7 +162,7 @@ namespace FicMart.Application.Services
                 key.ResponseCode = 200;
                 key.ResponseBody = JsonSerializer.Serialize(bankResult.Value);
                 receipt.PaymentStatus = PaymentStatus.Authorized;
-                receipt.AuthorizationId = bankResult.Value.authorizationId;
+                receipt.AuthorizationId = bankResult.Value.AuthorizationId;
                 receipt.AuthorizedAt = now;
             }
             else
